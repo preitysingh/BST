@@ -3,32 +3,40 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     public Node<Key, Value> root;
 
     public BinarySearchTree() {
-
+        //do i need this?
+        root = null;
     }
 
+    //check
     public int size() {
         return size(root);
     }
 
     //use Node's recursive size
+    //check
     private int size(Node x) {
         return x.getSize();
     }
 
+    //check
     public boolean isEmpty() {
         return root.getSize() == 0;
     }
 
     //recursive put wrapper
     public void put(Key key, Value value) {
-        root = put(root, key, value);
+        root = put(root, key, value); //filler
+
     }
 
     //recursive put
     //sets left/right or creates a new node appropriately, returns the
     //modified node n
     private Node<Key, Value> put(Node<Key, Value> n, Key key, Value val) {
-
+        if(n == null){
+            n = new Node(key,val);
+        }
+        return n; //filler
     }
 
     //recursive get wrapper
@@ -40,11 +48,11 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     //recursive get
     //returns null if the key does not exist
     private Value get(Node<Key, Value> n, Key key) {
-
+        
     }
 
     public boolean contains(Key key) {
-
+        return root.getKey() = key; //filler
     }
 
     public Value remove(Key key) {
@@ -77,7 +85,9 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
 
     //returns the node at the left most left branch of n
     private Node<Key, Value> min(Node<Key, Value> n) {
-
+        while (n.getLeft() != null){
+            n = n.getLeft();
+        }
     }
 
     public Key max() {
