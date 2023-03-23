@@ -55,14 +55,13 @@ public class BinarySearchTree<Key extends Comparable<Key>, Value> {
     private Value get(Node<Key, Value> n, Key key) {
         if (n == null) { // if Node n is empty return null
             return null;
-        } else if(n.getKey().compareTo(key) == 0) { //if key = 0
+        } else if(key == n.getKey()) { //if the key matches up
             return n.getValue(); //gets the value
-        } else if(n.getKey().compareTo(key) > 0) { //if key pos.
-            return get(n.getRight(), key); //gets value right of n
-        } else if(n.getKey().compareTo(key) < 0) { //if key neg.
-            return get(n.getLeft(), key); //gets value left of n
+        } else if(n.getKey().compareTo(key) >= 1) { //if key pos.
+            return get(n.getLeft(), key); //if the current key is > than 'key', get the one to the left
+        } else {
+            return get(n.getRight(), key); //if the current key is < than 'key', get the one to the right
         }
-        return null; //returning null otherwise
     }
 
     public boolean contains(Key key) {
